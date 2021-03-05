@@ -1,35 +1,35 @@
 <?php 
-  header("Content-Type: text/plain");
-  $Text = $_GET["text"];
-  echo("Text before: |".$Text."|\r\n\n");
+    header("Content-Type: text/plain");
+    $text = $_GET["text"];
+    echo("Text before: |".$text."|\r\n\n");
 
-//Вариант с помощью регулярных выражений
-  $FixedText = trim($Text);
-  $FixedText = preg_replace('/\s+/', " ", $FixedText);
-  echo("Text after: |".$FixedText."|\r\n\n");
+    //Вариант с помощью регулярных выражений
+    $fixedText = trim($text);
+    $fixedText = preg_replace('/\s+/', " ", $fixedText);
+    echo("Text after: |".$fixedText."|\r\n\n");
 
-//Вариант "того что выше мы еще не проходили"
-  $FixedText2 = "";
-  for ($i = 0; $i < strlen($Text); $i++)
-  {
-    static $FirstWordFound = false;
-    static $WordFound = false;
-    static $SpaceFound = false;
-
-    if (!$FirstWordFound && ctype_alpha($Text[$i]))
-      $FirstWordFound = true;
-    else if ($FirstWordFound && ctype_space($Text[$i]))  
-      $SpaceFound = true;
-
-    if (ctype_alpha($Text[$i]) && $FirstWordFound)
+    //Вариант "того что выше мы еще не проходили"
+    $fixedText2 = "";
+    for ($i = 0; $i < strlen($text); $i++)
     {
-      if ($SpaceFound)
-      {
-        $FixedText2 .= " ";
-        $SpaceFound = false;
-      }
-      $FixedText2 .= $Text[$i];
+        static $firstWordFound = false;
+        static $wordFound = false;
+        static $spaceFound = false;
+
+        if (!$firstWordFound && ctype_alpha($text[$i]))
+          $firstWordFound = true;
+        else if ($firstWordFound && ctype_space($text[$i]))  
+          $spaceFound = true;
+
+        if (ctype_alpha($text[$i]) && $firstWordFound)
+        {
+            if ($spaceFound)
+            {
+                $fixedText2 .= " ";
+                $spaceFound = false;
+            }
+            $fixedText2 .= $text[$i];
+        }
     }
-  }
-  echo("Text after (again): |".$FixedText2."|\r\n");
+    echo("Text after (again): |".$fixedText2."|\r\n");
  ?>
