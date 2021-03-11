@@ -3,7 +3,7 @@
     font-size: 14px;
 }
 
-.content-education
+.content
 {
     max-width: 50%; 
     font-size: 20px;
@@ -15,18 +15,7 @@
     text-decoration: underline;
 }
 
-.content-education li
-{
-    font-size: 16px;
-}
-
-.content-education ol li.penult-element::marker
+ol li.penult-element::marker
 {
     content: "";
-}
-
-.content-conclusion
-{
-    max-width: 50%;
-    font-size: 20px;
 }
