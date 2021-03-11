@@ -1,78 +1,108 @@
 <?php
     header("Content-Type: text/plain");
-    if (isset($_GET["password"]))
+
+    function validatePassword($password): bool
     {
-        $password = $_GET["password"];
-        $passwordLength = strlen($password);
-        $passwordStrength = 0;
-        $numberOfDigits = 0;
-        $numberOfAlphas = 0;
-        $numberOfUpperCase = 0;
-        $numberOfLowerCase = 0;
-        $symbols = [];
+        for($i = 0; $i < strlen($password); $i++)
+        {
+            if (!ctype_alnum($password[$i]))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function processPassword($password): array
+    {
+        $passwordInfo = array(
+            "length" => strlen($password),
+            "digits_count" => 0,
+            "alphas_count" => 0,
+            "upper_case_count" => 0,
+            "lower_case_count" => 0,
+            "symbols" => []
+        );
 
         for ($i = 0; $i < strlen($password); $i++)
         {
-            if (ctype_alnum($password[$i]))
+            $passwordInfo["symbols"][$password[$i]]++;
+            if (ctype_digit($password[$i]))
             {
-                $symbols[$password[$i]]++;
-                if (ctype_digit($password[$i]))
+                $passwordInfo["digits_count"]++;
+            }
+            else if (ctype_alpha($password[$i]))
+            {
+                $passwordInfo["alphas_count"]++;
+                if (ctype_upper($password[$i]))
                 {
-                    $numberOfDigits++;
+                    $passwordInfo["upper_case_count"]++;
                 }
-                else if (ctype_alpha($password[$i]))
+                else
                 {
-                    $numberOfAlphas++;
-                    if (ctype_upper($password[$i]))
-                    {
-                        $numberOfUpperCase++;
-                    }
-                    else
-                    {
-                        $numberOfLowerCase++;
-                    }
-                }             
-            }
-            else
-            {
-                echo("Пароль содержит недопустимый символ");
-                return;
-            }
+                    $passwordInfo["lower_case_count"]++;
+                }
+            }             
         }
+        return $passwordInfo;
+    }
+
+    function countSecurityPoints($passInfo): int
+    {
+        $passStrength = 0;
 
         /* Прибавка баллов */
         {
-            $passwordStrength += 4 * $passwordLength; //К надежности прибавляется (4*n), где n - количество всех символов пароля
-            $passwordStrength += 4 * $numberOfDigits; //К надежности прибавляется (4*n), где n - количество цифр в пароле
-            if ($numberOfUpperCase > 0) //К надежности прибавляется ((len-n)*2) в случае, если пароль содержит n символов в верхнем регистре
+            $passStrength += 4 * $passInfo["length"]; //К надежности прибавляется (4*n), где n - количество всех символов пароля
+            $passStrength += 4 * $passInfo["digits_count"]; //К надежности прибавляется (4*n), где n - количество цифр в пароле
+            if ($passInfo["upper_case_count"] > 0) //К надежности прибавляется ((len-n)*2) в случае, если пароль содержит n символов в верхнем регистре
             {
-                $passwordStrength += ($passwordLength - $numberOfUpperCase) * 2;
+                $passStrength += ($passInfo["length"] - $passInfo["upper_case_count"]) * 2;
             }
-            if ($numberOfLowerCase > 0) //К надежности прибавляется ((len-n)*2) в случае, если пароль содержит n символов в нижнем регистре
+            if ($passInfo["lower_case_count"] > 0) //К надежности прибавляется ((len-n)*2) в случае, если пароль содержит n символов в нижнем регистре
             {
-                $passwordStrength += ($passwordLength - $numberOfLowerCase) * 2;
+                $passStrength += ($passInfo["length"] - $passInfo["lower_case_number"]) * 2;
             }
         }
 
         /* Снятие баллов */
         {
-            if ($numberOfDigits < 1 || $numberOfAlphas < 1)
+            if ($passInfo["digits_count"] < 1 || $passInfo["alphas_count"] < 1)
             {
-                $passwordStrength -= $passwordLength;
+                $passStrength -= $passInfo["length"];
             }
 
-            foreach ($symbols as $key) 
+            foreach ($passInfo["symbols"] as $count) 
             {
-                if ($key > 1) //За каждый повторяющийся символ в пароле вычитается количество повторяющихся символов
+                if ($count > 1) //За каждый повторяющийся символ в пароле вычитается количество повторяющихся символов
                 {
-                    $passwordStrength -= $key;
+                    $passStrength -= $count;
                 }
             }
         }
+
+        return $passStrength;
+    }
+    
+    if (isset($_GET["password"]))
+    {
+        $password = $_GET["password"];
+        $passwordStrength = 0;
+
+        if (validatePassword($password))
+        {
+            $passwordInfo = processPassword($password);
+            $passwordStrength = countSecurityPoints($passwordInfo);
+        }
+        else
+        {
+            echo("Пароль содержит недопустимый символ");
+            return;
+        }
         
         echo("Your password is '$password'\n");
-        print_r($symbols);
-        echo("Password length: $passwordLength\n");
+        print_r($passwordInfo);
+        echo("Password length:" .$passwordInfo["length"]."\n");
         echo("Password strength: $passwordStrength");
     }
     else
