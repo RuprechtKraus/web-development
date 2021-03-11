@@ -1,0 +1,32 @@
+.photo-block span
+{
+    font-size: 14px;
+}
+
+.content-education
+{
+    max-width: 50%; 
+    font-size: 20px;
+}
+
+.content-education span
+{
+    font-weight: bold; 
+    text-decoration: underline;
+}
+
+.content-education li
+{
+    font-size: 16px;
+}
+
+.content-education ol li.penult-element::marker
+{
+    content: "";
+}
+
+.content-conclusion
+{
+    max-width: 50%;
+    font-size: 20px;
+}
