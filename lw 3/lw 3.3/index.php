@@ -102,7 +102,7 @@
         
         echo("Your password is '$password'\n");
         print_r($passwordInfo);
-        echo("Password length:" .$passwordInfo["length"]."\n");
+        echo("Password length:" . $passwordInfo["length"] . "\n");
         echo("Password strength: $passwordStrength");
     }
     else
