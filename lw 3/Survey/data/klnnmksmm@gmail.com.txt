@@ -1,4 +1,0 @@
-First name: Maksim
-Second name: Kalinin
-Age: 22
-Email: klnnmksmm@gmail.com
