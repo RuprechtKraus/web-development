@@ -1,2 +1,4 @@
 *.o
 *.bak
+*.exe
+lw 3/Survey/data/*.txt

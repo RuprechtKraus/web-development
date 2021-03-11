@@ -71,7 +71,7 @@
         }
         
         echo("Your password is '$password'\n");
-        // print_r($symbols);
+        print_r($symbols);
         echo("Password length: $passwordLength\n");
         echo("Password strength: $passwordStrength");
     }

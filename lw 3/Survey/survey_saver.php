@@ -7,7 +7,7 @@
         $filePath = __DIR__ . "\\data\\" . $_GET["email"] . ".txt";
         $file = fopen($filePath, "w");
         $fwrite = true;
-        for ($i=0; $i < sizeof($argNames); $i++) 
+        for ($i = 0; $i < sizeof($argNames); $i++) 
         {
             $arg = ""; 
             switch ($argNames[$i]) 
@@ -30,6 +30,7 @@
                 return;
             }
         }
+        fclose($filePath);
     }
     else
     {

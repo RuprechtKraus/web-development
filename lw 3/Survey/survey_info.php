@@ -19,6 +19,7 @@
         {
             echo("Файл " . $_GET["email"] . ".txt не найден");
         }
+        fclose($filePath);
     }
     else
     {
