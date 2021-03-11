@@ -1,5 +1,0 @@
-First name: Ruprecht
-Second name: Kraus
-Age: 22
-Gender: male
-Email: zombiegooood@gmail.com
