@@ -1,0 +1,196 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper1
+{
+    margin-bottom: 50px;
+    height: 350px;
+}
+
+body
+{
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+.content
+{
+    max-width: 1000px;
+    min-height: 1170px;
+    margin: 100px 460px 0px 460px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.content-avatar
+{
+    height: 350px;
+    width: 330px;
+    margin-right: 60px;
+
+    float: left;
+}
+
+.content__image
+{
+    height: inherit;
+    width: inherit;
+
+    object-fit: none;
+    object-position: 45%;
+}
+
+.content-quote
+{
+    padding-top: 50px;
+    max-width: 570px;
+    max-height: 300px;
+
+    display: inline-block;
+}
+
+.quote-icon
+{
+    height: 79px;
+}
+
+.quote__text
+{
+    margin-left: 60px;
+    margin-top: -10px;
+    max-width: 500px;
+
+    font-family: Georgia;
+    font-style: italic;
+    font-size: 28px;
+    text-align: left;
+    line-height: 42px;
+    color: #848484;
+}
+
+.quote__author
+{
+    margin: 2px 0px 0px 63px;
+
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 42px;
+}
+
+.content-rating
+{
+    width: 330px;
+    margin-right: 60px;
+    float: left;
+}
+
+.content-fav_writers
+{
+    margin-bottom: 46px;
+}
+
+.content-rating__label 
+{
+    margin-top: -6px;
+    margin-bottom: 13px;
+
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-size: 24px;
+    color: #15a98b;
+}
+
+.content-rating_list
+{
+    margin-left: 21px;
+
+    font-family: Georgia;
+    font-size: 19px;
+    line-height: 36px;
+    color: #555555;
+}
+
+.about
+{
+  max-width: 570px;
+  display: inline-block;
+}
+
+.about__name
+{
+    padding-left: 4px;
+    margin-top: -17px;
+    margin-bottom: 20px;
+
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-size: 48px;
+    color: #333333;
+}
+
+.underline
+{
+    height: 6px;
+    width: 60px;
+    border-radius: 3px;
+    background-color: #00C4AA;
+    margin-bottom: 44px;
+}
+  
+.about_me__text
+{
+    margin-bottom: 38px;
+
+    font-family: Georgia;
+    font-size: 19px;
+    line-height: 32px;
+    color: #555555;
+}
+
+.about-hobby__label
+{
+    margin-left: -2px;
+    margin-bottom: 12px;
+
+    font-family: 'Open Sans';
+    font-size: 36px;
+    color: #333333;
+}
+
+.write_me
+{
+    margin-top: 46px;
+    font-family: Georgia;
+    font-size: 19px;
+    color: #15a98b;
+}
+
+.write_me:hover
+{
+    color: #098d72;
+}
+
+.write_me__link, .write_me__arrow
+{
+    display: inline-block;
+    position: relative;
+}
+
+.write_me__link::after
+{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+
+    background-color: #15a98b88;
+}
+
+.write_me__link:hover::after
+{
+    background-color: #098d72;
+}

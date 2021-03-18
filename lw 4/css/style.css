@@ -15,7 +15,7 @@
     text-decoration: underline;
 }
 
-ol li.penult-element::marker
+.penult-element::marker
 {
     content: "";
 }
