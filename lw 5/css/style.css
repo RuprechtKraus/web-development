@@ -114,6 +114,11 @@ body
     color: #555555;
 }
 
+.fav_films__first
+{
+    margin-left: -2px;
+}
+
 .about
 {
   max-width: 570px;
