@@ -6,7 +6,7 @@
 
 body
 {
-    width: 100vw;
+    width: 100%;
     overflow-x: hidden;
 }
 
@@ -67,8 +67,6 @@ body
 .nav__about
 {
     width: 140px;
-    color: white;
-    background-color: #15a98c;
 }
 
 /* Nav__hobby */
@@ -81,6 +79,17 @@ body
 .nav__films
 {
     width: 234px;
+}
+
+.nav__link:hover
+{
+    color: white;
+    background-color: #15a98c;
+}
+
+.nav__link:hover .nav__icon
+{
+    filter: brightness(4.5);
 }
 
 /* Site-background */
@@ -110,8 +119,6 @@ body
     display: flex;
     flex-direction: column;
     width: 330px;
-    
-    /* background-color: thistle; */
 }
 
 /* Column wrapper 2 */
@@ -120,7 +127,6 @@ body
     display: flex;
     flex-direction: column;
     width: 570px;
-    /* background-color: wheat; */
 }
 
 .wrapper1
