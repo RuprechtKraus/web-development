@@ -13,13 +13,13 @@
                 {
                     echo($args[0] . ": " . $args[1] . "\n");
                 }
-            }            
+            }         
+			fclose($filePath);
         }
         else
         {
             echo("Файл " . $_GET["email"] . ".txt не найден");
         }
-        fclose($filePath);
     }
     else
     {

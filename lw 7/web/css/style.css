@@ -278,10 +278,9 @@ body
     margin-top: 46px;
     font-family: Georgia;
     font-size: 19px;
-    color: #15a98b;
 }
 
-.container__write-me:hover
+.container__write-me__link:hover
 {
     color: #098d72;
 }
@@ -289,6 +288,8 @@ body
 .container__write-me__link, 
 .container__write-me__arrow
 {
+    color: #15a98b;
+    text-decoration: none;
     display: inline-block;
     position: relative;
 }
@@ -503,7 +504,7 @@ body
 .input__text
 {
     height: 46px;
-    width: 518px;
+    width: 540px;
     padding-left: 18px;
     font-size: 16px;
 

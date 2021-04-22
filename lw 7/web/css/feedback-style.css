@@ -1,0 +1,48 @@
+.feedback-content
+{
+    margin: 150px auto 0 auto;
+    width: 80%;
+}
+
+.sender-email
+{
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 70px;
+}
+
+.feedback-email
+{
+    width: 100%;
+}
+
+.feedback-button-container
+{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.info-list
+{
+    margin-left: 21px;
+    margin-bottom: 20px;
+
+    font-family: Georgia;
+    font-size: 19px;
+    line-height: 38px;
+    color: #555555;
+}
+
+.feedback-content__message
+{
+    font-size: 20px;
+    font-family: Georgia;
+    line-height: 24px;
+}
+
+.message-label
+{
+    margin-bottom: 10px;
+}

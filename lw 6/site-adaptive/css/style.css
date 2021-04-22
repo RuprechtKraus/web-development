@@ -14,8 +14,7 @@ body
 .header
 {
     /* position: sticky; */
-    height: 50px;
-    width: 100%;
+    
     top: 0;
     left: 0;
     right: 0;
@@ -27,6 +26,7 @@ body
 .header__container
 {
     height: inherit;
+    width: 100%;
     max-width: 1100px;
     padding-left: 20px;
     padding-right: 20px;
@@ -67,8 +67,6 @@ body
 .nav__about
 {
     width: 140px;
-    color: white;
-    background-color: #15a98c;
 }
 
 /* Nav__hobby */
@@ -81,6 +79,17 @@ body
 .nav__films
 {
     width: 234px;
+}
+
+.nav__link:hover
+{
+    color: white;
+    background-color: #15a98c;
+}
+
+.nav__link:hover .nav__icon
+{
+    filter: brightness(4.5);
 }
 
 /* Site-background */
@@ -96,7 +105,8 @@ body
     display: flex;
     justify-content: space-between;
 
-    max-width: 1000px;
+    width: 100%;
+    max-width: 960px;
     min-height: 100%;
     height: 954px;
     margin: 195px 460px 0px 460px;
@@ -109,9 +119,7 @@ body
 {
     display: flex;
     flex-direction: column;
-    width: 330px;
-    
-    /* background-color: thistle; */
+    /* width: 330px; */
 }
 
 /* Column wrapper 2 */
@@ -119,8 +127,7 @@ body
 {
     display: flex;
     flex-direction: column;
-    width: 570px;
-    /* background-color: wheat; */
+    /* width: 570px; */
 }
 
 .wrapper1
@@ -141,7 +148,7 @@ body
 .content-avatar
 {
     height: 350px;
-    width: 330px;
+    /* width: 330px; */
     margin-right: 60px;
     margin-bottom: 50px;
     padding-top: 15px;
@@ -197,7 +204,7 @@ body
 
 .content-rating
 {
-    width: 330px;
+    /* width: 330px; */
     margin-right: 60px;
 }
 
@@ -661,4 +668,91 @@ body
     justify-content: center;
     align-items: center;
     padding-right: 22px;
+}
+
+@media screen and (min-width: 320px) {
+    .site-background
+    {
+        display: none;
+    }
+
+    .header
+    {
+        height: 30px;
+    }
+
+    .header__container
+    {
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+    }
+
+    .nav__link
+    {
+        font-size: 11px;
+    }
+
+    .nav__icon
+    {
+        width: 10px;
+    }
+
+    .container
+    {
+        margin: 0 auto;
+        padding: 0 0 0 0;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .column-1
+    {
+        width: 100%;
+        align-items: center;
+    }
+
+    .content-avatar
+    {
+        height: 200px;
+        margin: 0 0 0 0;
+    }
+
+    .content__image
+    {
+        height: 100%;
+        width: 200px;
+        object-fit: cover;
+    }
+
+    .content-avatar
+    {
+       margin-bottom: 20px;
+    }
+
+    .content-rating
+    {
+        margin: 0;
+    }
+
+    .content-rating__label
+    {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .content-rating_list
+    {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .content-fav_writers
+    {
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (min-width: 1366px) 
+{
+    
 }

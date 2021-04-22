@@ -1,10 +1,9 @@
-<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="../../web/css/style.css">
   <title>Jane Doe profile</title>
 </head>
 <body>
@@ -12,26 +11,26 @@
     <div class="header__container">
       <nav class="nav-bar">
         <a class="nav__link nav__about" href="#">
-          <img class="nav__icon" src="images/about-me-icon.png" alt="about-me-icon">
+          <img class="nav__icon" src="../../web/images/about-me-icon.png" alt="about-me-icon">
           Обо мне
         </a>
         <a class="nav__link nav__hobby" href="#">
-          <img class="nav__icon" src="images/my-hobby-icon.png" alt="my-hobby-icon">
+          <img class="nav__icon" src="../../web/images/my-hobby-icon.png" alt="my-hobby-icon">
           Мое хобби
         </a>
         <a class="nav__link nav__films" href="#">
-          <img class="nav__icon" src="images/fav-films-icon.png" alt="fav-films-icon">
+          <img class="nav__icon" src="../../web/images/fav-films-icon.png" alt="fav-films-icon">
           Любимые фильмы
         </a>
       </nav>
     </div>
   </header>
 
-  <img class="site-background" src="images/site-background.jpg" alt="">
+  <img class="site-background" src="../../web/images/site-background.jpg" alt="">
 
   <div class="container">  
       <div class="content-avatar">
-        <img class="content__image" src="images/jane-doe.jpg" alt="Jane Doe">
+        <img class="content__image" src="../../web/images/jane-doe.jpg" alt="Jane Doe">
       </div>
 
       <div class="content-quote">
@@ -89,7 +88,7 @@
          </div>
 
          <div class="container__write-me">
-          <div class="container__write-me__link">Напиши мне </div>
+          <a class="container__write-me__link" href="#write-me">Напиши мне </a>
           <div class="container__write-me__arrow">→</div>
          </div>
       </div>
@@ -103,7 +102,7 @@
 
       <div class="films-container__list">
         <div class="film-column">
-          <img class="film-screenshot film-screen-1" src="images/film-screenshot-1.jpg" alt="film-screen" class="film-screenshot">
+          <img class="film-screenshot film-screen-1" src="../../web/images/film-screenshot-1.jpg" alt="film-screen" class="film-screenshot">
 
           <div class="film-container__text">
             <div class="film-container__title">Побег из Шоушенка</div>
@@ -111,7 +110,7 @@
           </div>
         </div>
         <div class="film-column">
-          <img class="film-screenshot film-screen-2" src="images/film-screenshot-2.jpg" alt="film-screen" class="film-screenshot">
+          <img class="film-screenshot film-screen-2" src="../../web/images/film-screenshot-2.jpg" alt="film-screen" class="film-screenshot">
 
           <div class="film-container__text">
             <div class="film-container__title">Наркоз</div>
@@ -119,7 +118,7 @@
           </div>
         </div>
         <div class="film-column">
-          <img class="film-screenshot film-screen-3" src="images/film-screenshot-3.jpg" alt="film-screen" class="film-screenshot">
+          <img class="film-screenshot film-screen-3" src="../../web/images/film-screenshot-3.jpg" alt="film-screen" class="film-screenshot">
 
           <div class="film-container__text">
             <div class="film-container__title">Астрал</div>
@@ -127,7 +126,7 @@
           </div>
         </div>
         <div class="film-column">
-          <img class="film-screenshot film-screen-4" src="images/film-screenshot-4.jpg" alt="film-screen" class="film-screenshot">
+          <img class="film-screenshot film-screen-4" src="../../web/images/film-screenshot-4.jpg" alt="film-screen" class="film-screenshot">
 
           <div class="film-container__text">
             <div class="film-container__title">Гравитация</div>
@@ -143,7 +142,7 @@
     </div>
   </div>
 
-  <form class="write-me" action="">
+  <form id="write-me" class="write-me" method="POST">
     <div class="write-me__label">
       <div class="left-line line"></div>
       <div class="write-me__text">Напиши мне</div>
@@ -153,12 +152,18 @@
     <div class="input-form">
       <div class="input">
         <p class="input-label">Ваше имя <span class="asterisk">*</span></p>
-        <input type="text" name="name" class="input__text" id="input__name">
+        <input type="text" name="name" class="input__text" id="input__name" value="<?php echo $_SESSION["name"] ?? "" ?>">
+        <?php if (isset($_SESSION["errors"]["name_error_msg"])): ?>
+          <p><?php echo $_SESSION["errors"]["name_error_msg"]; ?></p>
+        <?php endif; ?>
       </div>
       
       <div class="input">
         <p class="input-label">Ваш email <span class="asterisk">*</span></p>
-        <input type="text" name="email" class="input__text" id="input__email">
+        <input type="text" name="email" class="input__text" id="input__email" value="<?php echo $_SESSION["email"] ?? "" ?>">
+        <?php if (isset($_SESSION["errors"]["email_error_msg"])): ?>
+          <p><?php echo $_SESSION["errors"]["email_error_msg"]; ?></p>
+        <?php endif; ?>
       </div>
 
       <div class="input">
@@ -182,6 +187,9 @@
       <div class="message-container">
         <p class="input-label">Ваше сообщение <span class="asterisk">*</span></p>
         <textarea name="message" class="message-container__input" cols="30" rows="10"></textarea>
+        <?php if (isset($_SESSION["errors"]["message_error_msg"])): ?>
+          <p><?php echo $_SESSION["errors"]["message_error_msg"]; ?></p>
+        <?php endif; ?>
       </div>
 
       <div class="button-container">

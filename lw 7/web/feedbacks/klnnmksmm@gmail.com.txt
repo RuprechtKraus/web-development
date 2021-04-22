@@ -1,0 +1,5 @@
+name: Калинин Максим
+email: klnnmksmm@gmail.com
+country: russia
+gender: m
+message: Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta, cupiditate quae quaerat in voluptate placeat natus! Maiores vitae ipsa in rerum modi exercitationem provident qui! Harum eaque a, fugit incidunt, dicta maxime saepe ad veritatis consequatur deleniti facere aliquid natus aspernatur vero, blanditiis pariatur! Nobis optio magni assumenda omnis fugiat dolor aliquid sit deleniti voluptate earum dolores aliquam, reiciendis officiis at, eligendi incidunt sed, deserunt soluta nulla! A culpa at ducimus. Delectus temporibus cupiditate, obcaecati illo magnam, ex molestiae odit vel sed deleniti aspernatur, reiciendis fugit optio debitis aliquid explicabo? Ducimus excepturi ipsa, atque illo quibusdam quae nostrum? Libero, magnam? 
